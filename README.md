@@ -7,6 +7,12 @@ Eclipse is a minimal logger for the rest of my projects. It supports different l
 
 
 # Usage
+1) Create a build folder `mkdir build`
+2) Generate the build files with `cmake -S . -B build/`
+3) Cd into the build directory `cd build/`
+4) Run `cmake --build .`
+5) Run `./eclipse`
+
 ```cpp
 #include "logger.h"
 
