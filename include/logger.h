@@ -10,22 +10,37 @@
 
 using std::string;
 
-class Logger {
-public:
-    enum LogLevel {
+enum LogLevel {
         SILLY,
         INFO,
         WARNING,
         ERROR,
         FATAL,
-    };
+};
+
+class Logger {
+public:
 
     Logger() {}
     Logger(LogLevel logLevel) : logLevel(logLevel) {}
-    ~Logger() {}
+    ~Logger() { delete instance; }
 
     LogLevel getLogLevel() { return logLevel; }
     void setLogLevel(LogLevel logLevel) { this->logLevel = logLevel; }
+
+    static Logger* get() {
+        if (instance == nullptr) {
+            instance = new Logger();
+        }
+        return instance;
+    }
+
+    static void destroy() {
+        if (instance != nullptr) {
+            delete instance;
+            instance = nullptr;
+        }
+    }
 
     string padLeft(const string& str, short int num, char paddingChar = ' ');
     string padRight(const string& str, short int num, char paddingChar = ' ');
@@ -34,17 +49,19 @@ public:
     string getTag(LogLevel& logLevel);
     Colour::Code getColour(LogLevel& logLevel);
 
-    void silly(string message, string file, int line);
-    void info(string message, string file, int line);
-    void warning(string message, string file, int line);
-    void error(string message, string file, int line);
-    void fatal(string message, string file, int line);
+    void silly(string message);
+    void info(string message);
+    void warning(string message);
+    void error(string message);
+    void fatal(string message);
 
 private:
     LogLevel logLevel = LogLevel::ERROR;
+    static Logger* instance;
     string timestamp();
-    string fileInformation(string file, int line);
 
-    void write(string& message, LogLevel loglevel, string file, int line);
+    void write(string& message, LogLevel loglevel);
 
 };
+
+extern Logger* logger;
