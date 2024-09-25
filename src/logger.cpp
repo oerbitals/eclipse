@@ -100,3 +100,7 @@ void Logger::error(string message) {
 void Logger::fatal(string message) {
     write(message, LogLevel::FATAL);
 }
+
+void Logger::debug(string message) {
+    write(message, LogLevel::DEBUG);
+}

@@ -8,11 +8,12 @@
 #include "colours.h"
 
 enum LogLevel {
-        SILLY,
-        INFO,
-        WARNING,
-        ERROR,
         FATAL,
+        ERROR,
+        WARNING,
+        INFO,
+        DEBUG,
+        SILLY,
 };
 
 class Logger {
@@ -46,14 +47,15 @@ public:
     string getTag(LogLevel& logLevel);
     Colour::Code  getColour(LogLevel& logLevel);
 
-    void silly(string message);
-    void info(string message);
-    void warning(string message);
-    void error(string message);
     void fatal(string message);
+    void error(string message);
+    void warning(string message);
+    void info(string message);
+    void debug(string message);
+    void silly(string message);
 
 private:
-    LogLevel logLevel = LogLevel::ERROR;
+    LogLevel logLevel = LogLevel::INFO;
     static Logger* instance;
     string timestamp();
 
