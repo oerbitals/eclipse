@@ -44,7 +44,7 @@ You can either use the logger like so:
 #include <eclipse/logger.h>
 
 int main() {
-    Logger logger = Logger(LogLevel::INFO); // LogLevel::INFO is optional, default is ERROR
+    Logger logger = Logger(LogLevel::INFO); // LogLevel::INFO is optional, default is INFO
 
     logger.warning("Hello, Warning!");
     logger.silly("Hello, Silly!");
