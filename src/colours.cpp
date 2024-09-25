@@ -24,6 +24,10 @@ string Colour::cyan(string text) {
     return "\033[36m" + text + "\033[0m";
 }
 
+string Colour::orange(string text) {
+    return "\033[38;2;255;165;0m" + text + "\033[0m";
+}
+
 string Colour::light_gray(string text) {
     return "\033[37m" + text + "\033[0m";
 }

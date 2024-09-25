@@ -49,6 +49,8 @@ string Logger::getTag(LogLevel& logLevel) {
             return "Error";
         case LogLevel::FATAL:
             return "Fatal";
+        case LogLevel::DEBUG:
+            return "Debug";
         default:
             return "Unknown";
     }
@@ -66,6 +68,8 @@ Colour::Code Logger::getColour(LogLevel& logLevel) {
             return Colour::RED;
         case LogLevel::FATAL:
             return Colour::BRIGHT_MAGENTA;
+        case LogLevel::DEBUG:
+            return Colour::BLUE;
         default:
             return Colour::WHITE;
     }
