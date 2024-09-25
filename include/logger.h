@@ -1,14 +1,11 @@
 #pragma once
 
-#include <string>
 #include <iostream>
 #include <chrono>
 #include <ctime>
 #include <iomanip>
 #include <sstream>
-#include <colours.h>
-
-using std::string;
+#include "colours.h"
 
 enum LogLevel {
         SILLY,
@@ -47,7 +44,7 @@ public:
     string padBoth(const string& str, short int num, char paddingChar = ' ');
 
     string getTag(LogLevel& logLevel);
-    Colour::Code getColour(LogLevel& logLevel);
+    Colour::Code  getColour(LogLevel& logLevel);
 
     void silly(string message);
     void info(string message);

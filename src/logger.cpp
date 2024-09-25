@@ -77,7 +77,7 @@ void Logger::write(string& message, LogLevel logLevel) {
     string mainMessage = Colour::colour(message, colour);
     string tag = Colour::colour(getTag(logLevel), colour);
     
-    oss << padRight(timestamp(), 30) << padRight("[" + tag + "]:", 20) << mainMessage << " " << std::endl;
+    oss << padRight(timestamp(), 30) << padRight("[" + tag + "]:", 18) << mainMessage << " " << std::endl;
     std::cout << oss.str();
 }
 
