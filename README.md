@@ -33,13 +33,15 @@ cmake_minimum_required(VERSION 3.10)
 project(OtherProject)
 
 find_package(eclipse REQUIRED)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE eclipse)
 ```
 
 # Usage
 
 You can either use the logger like so:
 ```cpp
-#include "logger.h"
+#include <eclipse/logger.h>
 
 int main() {
     Logger logger = Logger(LogLevel::INFO); // LogLevel::INFO is optional, default is ERROR
@@ -58,7 +60,7 @@ Or create a singleton and not need to create an instance each time:
 
 **main.cpp**
 ```cpp
-#include "logger.h"
+#include <eclipse/logger.h>
 
 Logger* logger = logger::get();
 
@@ -76,7 +78,7 @@ int main() {
 
 **somefile.cpp**
 ```cpp
-#include "logger.h"
+#include <eclipse/logger.h>
 
 void randomFunction() {
 
