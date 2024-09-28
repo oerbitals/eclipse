@@ -12,7 +12,7 @@ ___
 - [ ] File and line
 - [ ] Get backtrace for errors and print them
 - [ ] Customise the logger itself (remove timestamp, customise the timestamp)
-- [ ] Add 256 Colour support
+- [ ] Add 32-bit colour support
 
 # Build
 If you'd like to build the project yourself, you'll just need to do the following:
